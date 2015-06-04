@@ -172,6 +172,11 @@ if (INCLUDE_MOZSVC)
     add_dependencies(heka-mozsvc-plugins raven-go)
 endif()
 
+git_clone(https://github.com/mreiferson/go-snappystream master)
+git_clone(https://github.com/bitly/go-nsq master)
+git_clone(https://github.com/bitly/go-hostpool master)
+add_external_plugin(git https://github.com/chentao/heka-nsq master)
+
 hg_clone(https://code.google.com/p/go-uuid default)
 git_clone(https://code.google.com/p/gogoprotobuf 7008a93e68bf)
 add_custom_command(TARGET gogoprotobuf POST_BUILD
